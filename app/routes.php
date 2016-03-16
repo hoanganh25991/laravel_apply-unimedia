@@ -21,3 +21,12 @@ Route::group(["prefix" => "category"], function(){
     Route::model("category", "Category");
     Route::get("/{category}", 'CategoryController@getOne');
 });
+
+Route::group(["prefix" => "product"], function(){
+    Route::get("/", function(){});
+
+    //bind model Product > product
+    Route::model("product", "Product");
+    Route::get("/{product}", "ProductController@getOne");
+    Route::post("/{product}", "ProductController@saveOne");
+});
