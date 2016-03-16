@@ -16,8 +16,8 @@ Route::get('/', function () {
 });
 
 Route::group(["prefix" => "category"], function(){
-    Route::get("/", function(){
-    });
+    Route::get("/", 'CategoryController@showList');
+    //bind model Category > category
     Route::model("category", "Category");
-    Route::get("/{category}", '');
+    Route::get("/{category}", 'CategoryController@getOne');
 });
