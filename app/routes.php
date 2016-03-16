@@ -11,7 +11,13 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('hello');
+Route::get('/', function () {
+    return View::make('hello');
+});
+
+Route::group(["prefix" => "category"], function(){
+    Route::get("/", function(){
+    });
+    Route::model("category", "Category");
+    Route::get("/{category}", '');
 });
